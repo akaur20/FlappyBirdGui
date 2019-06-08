@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -19,6 +20,7 @@ public class FlappyBird extends JFrame implements ActionListener
 	int a = 1;
 	int y;
 	Timer t1;
+	int pane;
 	boolean game = true;
 
 	public FlappyBird()
@@ -28,8 +30,6 @@ public class FlappyBird extends JFrame implements ActionListener
 		setLayout(null);
 		
 		ball = new Circle(20,100);
-		
-		
 		
 		random1 = (int) (Math.random() * 50) + 50;
 		random2 = (int) (Math.random() * 50) + 50;
@@ -104,7 +104,6 @@ public class FlappyBird extends JFrame implements ActionListener
 		t1 = new Timer(40, this);
 		t1.start();
 		
-		
 		setFocusable(true);
 		
 		setVisible(true);
@@ -139,7 +138,37 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() <= tube1.getY() + random1 && tube1.getX() > 20 - tube1.getWidth() && tube1.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
 			if(tube2.getX() <= 0)
@@ -149,7 +178,37 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() <= tube2.getY() + random2 && tube2.getX() > 20 - tube2.getWidth() && tube2.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
 			if(tube3.getX() <= 0)
@@ -159,7 +218,37 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() <= tube3.getY() + random3 && tube3.getX() > 20 - tube3.getWidth() && tube3.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
 			if(tube4.getX() <= 0)
@@ -169,7 +258,37 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() <= tube4.getY() + random4 && tube4.getX() > 20 - tube4.getWidth() && tube4.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
 			
@@ -191,28 +310,148 @@ public class FlappyBird extends JFrame implements ActionListener
 			}
 			
 			
-			if(ball.getY() <= tube1.getY() + tube1.getY() + random1 && tube5.getX() > 20 - tube5.getWidth() && tube5.getX() < 20)
+			if(ball.getY() >= tube5.getY() && tube5.getX() > 20 - tube5.getWidth() && tube5.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
-			if(ball.getY() <= tube2.getY() + tube2.getY() + random2 && tube6.getX() > 20 - tube6.getWidth() && tube6.getX() < 20)
+			if(ball.getY() >= tube6.getY() && tube6.getX() > 20 - tube6.getWidth() && tube6.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
-			if(ball.getY() <= tube3.getY() + tube3.getY() + random3 && tube7.getX() > 20 - tube7.getWidth() && tube7.getX() < 20)
+			if(ball.getY() >= tube7.getY() && tube7.getX() > 20 - tube7.getWidth() && tube7.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
-			if(ball.getY() <= tube4.getY() + tube4.getY() + random4 && tube8.getX() > 20 - tube8.getWidth() && tube8.getX() < 20)
+			if(ball.getY() >= tube8.getY() && tube8.getX() > 20 - tube8.getWidth() && tube8.getX() < 20)
 			{
 				game = false;
-				JOptionPane.showMessageDialog(null, "You Lost!");
+				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				if(pane == JOptionPane.YES_OPTION)
+				{
+					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
+					remove(tube5);remove(tube6);remove(tube7);remove(tube8);
+					
+					ball = new Circle(20,100);
+					
+					random1 = (int) (Math.random() * 50) + 50;
+					random2 = (int) (Math.random() * 50) + 50;
+					random3 = (int) (Math.random() * 50) + 50;
+					random4 = (int) (Math.random() * 50) + 50;
+					
+					tube1 = new Tubes(40,0, 30, random1);
+					tube2 = new Tubes(120,0, 30, random2);
+					tube3 = new Tubes(200,0, 30, random3);
+					tube4 = new Tubes(280, 0, 30, random4);
+					tube5 = new Tubes(40,280 - tube1.getY() - random1, 30, tube1.getY() + random1);
+					tube6 = new Tubes(120,280 - tube2.getY() - random2, 30, tube2.getY() + random2);
+					tube7 = new Tubes(200,280 - tube3.getY() - random3, 30, tube3.getY() + random3);
+					tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
+					
+					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
+					add(tube5);add(tube6);add(tube7);add(tube8);
+					
+					game = true;
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Thanks for Playing");
+				}
 			}
 			
 		}
