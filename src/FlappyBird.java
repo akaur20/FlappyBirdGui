@@ -13,14 +13,13 @@ public class FlappyBird extends JFrame implements ActionListener
 {
 	Circle ball;
 	Tubes tube1, tube2, tube3, tube4, tube5, tube6, tube7, tube8;
-	ArrayList<Tubes> tubeList1;
-	ArrayList<Tubes> tubeList2;
 	int random1, random2, random3, random4;
 	int v;
 	int a = 1;
 	int y;
 	Timer t1;
 	int pane;
+	int counter = 0;
 	boolean game = true;
 
 	public FlappyBird()
@@ -31,10 +30,10 @@ public class FlappyBird extends JFrame implements ActionListener
 		
 		ball = new Circle(20,100);
 		
-		random1 = (int) (Math.random() * 50) + 50;
-		random2 = (int) (Math.random() * 50) + 50;
-		random3 = (int) (Math.random() * 50) + 50;
-		random4 = (int) (Math.random() * 50) + 50;
+		random1 = (int) (Math.random() * 60) + 50;
+		random2 = (int) (Math.random() * 60) + 50;
+		random3 = (int) (Math.random() * 60) + 50;
+		random4 = (int) (Math.random() * 60) + 50;
 		
 		tube1 = new Tubes(40,0, 30, random1);
 		tube2 = new Tubes(120,0, 30, random2);
@@ -46,16 +45,7 @@ public class FlappyBird extends JFrame implements ActionListener
 		tube8 = new Tubes(280, 280 - tube4.getY() - random4, 30, tube4.getY() + random4);
 		
 		
-		tubeList1 = new ArrayList<Tubes>();
-		tubeList2 = new ArrayList<Tubes>();
-		tubeList1.add(tube1);
-		tubeList1.add(tube2);
-		tubeList1.add(tube3);
-		tubeList1.add(tube4);
-		tubeList2.add(tube5);
-		tubeList2.add(tube6);
-		tubeList2.add(tube7);
-		tubeList2.add(tube8);
+		
 		
 		addKeyListener(new KeyListener()
 				{
@@ -129,16 +119,19 @@ public class FlappyBird extends JFrame implements ActionListener
 			tube7.setDX(-3);tube7.update();	
 			tube8.setDX(-3);tube8.update();
 			
+			
 			repaint();
 				
 			if(tube1.getX() <= 0)
 			{
+				counter ++;
 				tube1.setLocation(280, 0);
 			}
 			if(ball.getY() <= tube1.getY() + random1 && tube1.getX() > 20 - tube1.getWidth() && tube1.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -146,10 +139,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -162,7 +155,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -173,12 +166,14 @@ public class FlappyBird extends JFrame implements ActionListener
 			
 			if(tube2.getX() <= 0)
 			{
+				counter ++;
 				tube2.setLocation(280, 0);
 			}
 			if(ball.getY() <= tube2.getY() + random2 && tube2.getX() > 20 - tube2.getWidth() && tube2.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -186,10 +181,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -202,7 +197,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -213,12 +208,14 @@ public class FlappyBird extends JFrame implements ActionListener
 			
 			if(tube3.getX() <= 0)
 			{
+				counter ++;
 				tube3.setLocation(280, 0);
 			}
 			if(ball.getY() <= tube3.getY() + random3 && tube3.getX() > 20 - tube3.getWidth() && tube3.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -226,10 +223,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -242,7 +239,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -253,12 +250,14 @@ public class FlappyBird extends JFrame implements ActionListener
 			
 			if(tube4.getX() <= 0)
 			{
+				counter ++;
 				tube4.setLocation(280, 0);
 			}
 			if(ball.getY() <= tube4.getY() + random4 && tube4.getX() > 20 - tube4.getWidth() && tube4.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -266,10 +265,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -282,7 +281,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -313,7 +312,8 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() >= tube5.getY() && tube5.getX() > 20 - tube5.getWidth() && tube5.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -321,10 +321,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -337,7 +337,7 @@ public class FlappyBird extends JFrame implements ActionListener
 
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -349,7 +349,8 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() >= tube6.getY() && tube6.getX() > 20 - tube6.getWidth() && tube6.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -357,10 +358,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -373,7 +374,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -385,7 +386,8 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() >= tube7.getY() && tube7.getX() > 20 - tube7.getWidth() && tube7.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -393,10 +395,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -409,7 +411,7 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
@@ -421,7 +423,8 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(ball.getY() >= tube8.getY() && tube8.getX() > 20 - tube8.getWidth() && tube8.getX() < 20)
 			{
 				game = false;
-				pane = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
+				pane = JOptionPane.showConfirmDialog(null, "You got past " + counter + 
+						" sets of tubes. Would you like to play again?", null, JOptionPane.YES_NO_OPTION );
 				if(pane == JOptionPane.YES_OPTION)
 				{
 					remove(ball);remove(tube1);remove(tube2);remove(tube3);remove(tube4);
@@ -429,10 +432,10 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					ball = new Circle(20,100);
 					
-					random1 = (int) (Math.random() * 50) + 50;
-					random2 = (int) (Math.random() * 50) + 50;
-					random3 = (int) (Math.random() * 50) + 50;
-					random4 = (int) (Math.random() * 50) + 50;
+					random1 = (int) (Math.random() * 60) + 50;
+					random2 = (int) (Math.random() * 60) + 50;
+					random3 = (int) (Math.random() * 60) + 50;
+					random4 = (int) (Math.random() * 60) + 50;
 					
 					tube1 = new Tubes(40,0, 30, random1);
 					tube2 = new Tubes(120,0, 30, random2);
@@ -445,13 +448,14 @@ public class FlappyBird extends JFrame implements ActionListener
 					
 					add(ball);add(tube1);add(tube2);add(tube3);add(tube4);
 					add(tube5);add(tube6);add(tube7);add(tube8);
-					
+					counter = 0;
 					game = true;
 				}
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Thanks for Playing");
 				}
+				
 			}
 			
 		}
