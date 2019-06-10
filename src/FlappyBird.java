@@ -125,7 +125,9 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(tube1.getX() <= 0)
 			{
 				counter ++;
-				tube1.setLocation(280, 0);
+				tube1.setLocation(320, 0);
+				random1 = (int) (Math.random() * 60) + 50;
+				tube1.rectangle.setSize(30, tube1.getY() + random1);
 			}
 			if(ball.getY() <= tube1.getY() + random1 && tube1.getX() > 20 - tube1.getWidth() && tube1.getX() < 20)
 			{
@@ -167,7 +169,10 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(tube2.getX() <= 0)
 			{
 				counter ++;
-				tube2.setLocation(280, 0);
+				tube2.setLocation(320, 0);
+				random2 = (int) (Math.random() * 60) + 50;
+				tube2.rectangle.setSize(30, tube2.getY() + random2);
+				
 			}
 			if(ball.getY() <= tube2.getY() + random2 && tube2.getX() > 20 - tube2.getWidth() && tube2.getX() < 20)
 			{
@@ -209,7 +214,9 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(tube3.getX() <= 0)
 			{
 				counter ++;
-				tube3.setLocation(280, 0);
+				tube3.setLocation(320, 0);
+				random3 = (int) (Math.random() * 60) + 50;
+				tube3.rectangle.setSize(30, tube3.getY() + random3);
 			}
 			if(ball.getY() <= tube3.getY() + random3 && tube3.getX() > 20 - tube3.getWidth() && tube3.getX() < 20)
 			{
@@ -251,7 +258,9 @@ public class FlappyBird extends JFrame implements ActionListener
 			if(tube4.getX() <= 0)
 			{
 				counter ++;
-				tube4.setLocation(280, 0);
+				tube4.setLocation(320, 0);
+				random4 = (int) (Math.random() * 60) + 50;
+				tube4.rectangle.setSize(30, tube4.getY() + random4);
 			}
 			if(ball.getY() <= tube4.getY() + random4 && tube4.getX() > 20 - tube4.getWidth() && tube4.getX() < 20)
 			{
@@ -293,19 +302,23 @@ public class FlappyBird extends JFrame implements ActionListener
 			
 			if(tube5.getX() <= 0)
 			{
-				tube5.setLocation(280, 280 - tube1.getY() - random1);
+				tube5.setLocation(320, 280 - tube1.getY() - random1);
+				tube5.rectangle.setSize(30, tube1.getY() + random1);
 			}
 			if(tube6.getX() <= 0)
 			{
-				tube6.setLocation(280, 280 - tube2.getY() - random2);
+				tube6.setLocation(320, 280 - tube2.getY() - random2);
+				tube6.rectangle.setSize(30, tube2.getY() + random2);
 			}
 			if(tube7.getX() <= 0)
 			{
-				tube7.setLocation(280, 280 - tube3.getY() - random3);
+				tube7.setLocation(320, 280 - tube3.getY() - random3);
+				tube7.rectangle.setSize(30, tube3.getY() + random3);
 			}
 			if(tube8.getX() <= 0)
 			{
-				tube8.setLocation(280, 280 - tube4.getY() - random4);
+				tube8.setLocation(320, 280 - tube4.getY() - random4);
+				tube8.rectangle.setSize(30, tube4.getY() + random4);
 			}
 			
 			
